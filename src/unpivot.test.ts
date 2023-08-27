@@ -1,11 +1,11 @@
-import { unpivotTable, composeRows } from "./unpivot";
+import { unpivotTable_, composeRows_ } from "./unpivot";
 
 
 describe("unpivotTable", () => {
   test("empty grid", () => {
     const expected = [];
 
-    expect(unpivotTable([], "column", "value", 1)).toEqual(expected);
+    expect(unpivotTable_([], "column", "value", 1)).toEqual(expected);
   });
   
   test("2x2, 2 fixed", () => {
@@ -22,7 +22,7 @@ describe("unpivotTable", () => {
       ["Tea", "Summer", "Waylon Smithers", 5],
     ];
 
-    expect(unpivotTable(actual, "Person", "Score", 2)).toEqual(expected);
+    expect(unpivotTable_(actual, "Person", "Score", 2)).toEqual(expected);
   });
 });
 
@@ -35,7 +35,7 @@ describe("composeRows", () => {
       ["Apple", "Montgomery Burns", 3],
     ];
 
-    expect(composeRows(constant, names, values)).toEqual(expected);
+    expect(composeRows_(constant, names, values)).toEqual(expected);
   });
 
   test("produce two rows", () => {
@@ -47,7 +47,6 @@ describe("composeRows", () => {
       ["Apple", "Juice", "Waylon Smithers", 5],
     ];
 
-    expect(composeRows(constant, names, values)).toEqual(expected);
-  });  
-
+    expect(composeRows_(constant, names, values)).toEqual(expected);
+  });
 });

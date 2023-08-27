@@ -5,7 +5,7 @@ export type Table = Array<TableRow>;
 export type TableRow = Array<any>;
 
 /** Translates a grid into a table */
-export function unpivotTable(grid: Grid,
+export function unpivotTable_(grid: Grid,
                              columnName: string,
                              valueName: string,
                              fixedColumns: number): Table
@@ -22,7 +22,7 @@ export function unpivotTable(grid: Grid,
     const constant = row.slice(0, fixedColumns);
     const values = row.slice(fixedColumns);
 
-    return composeRows(constant, names, values);
+    return composeRows_(constant, names, values);
   });
   
   return [tableHeader].concat(tableRows);
@@ -32,5 +32,5 @@ export function unpivotTable(grid: Grid,
  *
  * @private
  */
-export const composeRows = (constant: Array<any>, names: Array<any>, values: Array<any>) =>
+export const composeRows_ = (constant: Array<any>, names: Array<any>, values: Array<any>) =>
   names.map((name, idx) => constant.concat([name, values[idx]]));

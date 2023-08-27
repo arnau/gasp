@@ -1,4 +1,4 @@
-import { unpivotTable } from "./unpivot";
+import { unpivotTable_ } from "./unpivot";
 import type { Table, Grid } from "./unpivot";
 
 /**
@@ -12,6 +12,5 @@ import type { Table, Grid } from "./unpivot";
  * @customfunction
  */
 function unpivot(grid: Grid, columnName: string = "column", valueName: string = "value", fixedColumns: number = 1): Table {
-  return unpivotTable(grid, columnName, valueName, fixedColumns);
+  return unpivotTable_(grid, columnName, valueName, fixedColumns);
 }
-// const unpivot = unpivotTable;
